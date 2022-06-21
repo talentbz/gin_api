@@ -19,7 +19,8 @@ import (
 	//
 	//sw "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 	//
-	sw "./go"
+	// sw "./go"
+	sw "github.com/talentbz/gin_api/go"
 )
 
 func main() {
