@@ -1,0 +1,67 @@
+openapi: 3.0.1
+info:
+  title: Subscription Manager
+  version: 0.0.1
+servers:
+- description: Development server
+  url: http://localhost/dev/api
+paths:
+  /health:
+    get:
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Health Check Endpoint
+  /plans:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfAPlans'
+          description: The response includes a json payload that represents a list
+            of APlan instances.
+      summary: Returns a list of available subscription plans."
+      tags:
+      - Plan Related Endpoints
+  /plans/current:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APlan'
+          description: The response includes a json payload that represents an instance
+            of APlan.
+      summary: Returns an instance of APlan that a logged on user is currently using."
+      tags:
+      - Plan Related Endpoints
+components:
+  schemas:
+    APlan:
+      example:
+        code: 0
+        message: message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+      title: API Object that contains details of a subscription plan.
+      type: object
+    ListOfAPlans:
+      example:
+        plans:
+        - code: 0
+          message: message
+        - code: 0
+          message: message
+      properties:
+        plans:
+          items:
+            $ref: '#/components/schemas/APlan'
+          type: array
+      type: object
