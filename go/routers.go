@@ -53,14 +53,14 @@ func NewRouter() *gin.Engine {
 
 // Index is the index handler.
 func Index(c *gin.Context) {
-	c.String(http.StatusOK, "Hello World123!")
+	c.String(http.StatusOK, "Hello World!")
 }
 
 var routes = Routes{
 	{
 		"Index",
 		http.MethodGet,
-		"/dev/api/123",
+		"/dev/api/",
 		Index,
 	},
 

@@ -15,7 +15,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// HealthGet - 
+// HealthGet -
 func HealthGet(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+	c.JSON(http.StatusOK, "hello")
+	//c.JSON(http.StatusOK, gin.H{})
 }
